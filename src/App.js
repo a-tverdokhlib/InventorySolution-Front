@@ -24,6 +24,7 @@ import TestLabel from './pages/TestLabel/TestLabel';
 import Members from './pages/Members/Members';
 
 import * as actions from './store/actions/index'
+import ShipConfirmation from './pages/Orders/ShipMethod/ShipConfirmation';
 
 
 
@@ -41,7 +42,8 @@ function App() {
 
   /* axios.defaults.baseURL = 'https://scms-api.herokuapp.com'; */
   /* axios.defaults.baseURL = 'http://localhost:4000'; */
-  axios.defaults.baseURL = 'http://18.119.141.222:3000';
+  // axios.defaults.baseURL = 'http://18.119.141.222:3000';
+  axios.defaults.baseURL = 'http://localhost:3000';
   axios.defaults.headers.common['Authorization'] = `auth ${token}`;
   if (sudoToken){
     axios.defaults.headers.common['Sudo'] = `auth ${sudoToken}`;
@@ -69,6 +71,7 @@ function App() {
           <Route path="/discounts/:id" component={Discounts}></Route>
           <Route path="/add-order/" component={AddOrder}></Route>
           <Route path="/ship-method/" component={ShipMethod}></Route>
+          <Route path="/ship-confirmation/" component={ShipConfirmation}></Route>
           <Route path="/ship-order/" component={ShipOrder}></Route>
           <Route path="/picking-slip/:id" component={PackingSlip}></Route>
           <Route path="/picking-ticket/:id" component={PickingTicket}></Route>
@@ -87,6 +90,7 @@ function App() {
           <Route path="/recipient" component={Recipents}></Route>
           <Route path="/add-order/" component={AddOrder}></Route>
           <Route path="/ship-method/" component={ShipMethod}></Route>
+          <Route path="/ship-confirmation/" component={ShipConfirmation}></Route>
           <Route path="/ship-order/" component={ShipOrder}></Route>
           <Route path="/picking-slip/:id" component={PackingSlip}></Route>
           <Route path="/picking-ticket/:id" component={PickingTicket}></Route>

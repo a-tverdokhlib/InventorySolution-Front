@@ -120,7 +120,7 @@ const GetOrders = () => {
 
   const postShip = (e, id, _order) => {
     if (_order.status === 2) {
-      alert("The item is already cancelled. we can't ship this item");
+      alert("The item is already shipped. we can't ship this item");
       return;
     }
     axios
@@ -310,8 +310,9 @@ const GetOrders = () => {
                     </TableCell>
                     <TableCell align="center">
                       {(() => {
-                        if (o.status === 1) return "Pending";
-                        if (o.status === 1) return "Shipped";
+                        if (o.status === 0) return "Unknown";
+                        else if (o.status === 1) return "Pending";
+                        else if (o.status === 2) return "Shipped";
                         else return "Cancelled";
                       })()}
                     </TableCell>
@@ -348,7 +349,7 @@ const GetOrders = () => {
                     ) : null}
                     <TableCell align="center" style={{ maxWidth: "8rem" }}>
                       {(() => {
-                        if (o.tracking && o.actual_carrier === "FedEx")
+                        if (o.tracking && o.actual_carrier.toUpperCase() === "FEDEX")
                           return (
                             <a
                               href={`https://www.fedex.com/apps/fedextrack/?tracknumbers=${o.tracking}`}
@@ -358,7 +359,7 @@ const GetOrders = () => {
                               {o.tracking}
                             </a>
                           );
-                        else if (o.tracking && o.actual_carrier === "USPS")
+                        else if (o.tracking && o.actual_carrier.toUpperCase() === "USPS")
                           return (
                             <a
                               href={`https://tools.usps.com/go/TrackConfirmAction?qtc_tLabels1=${o.tracking}`}

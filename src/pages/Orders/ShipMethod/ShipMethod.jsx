@@ -6,6 +6,7 @@ import { useLocation, useHistory } from 'react-router';
 // Styles
 import classes from './ShipMethod.module.scss';
 // Material Ui
+import Box from "@material-ui/core/Box";
 import Table from '@material-ui/core/Table';
 import TableBody from '@material-ui/core/TableBody';
 import TableCell from '@material-ui/core/TableCell';
@@ -53,7 +54,8 @@ const ShipMethod = () => {
         }
         axios.post('/order/add-update/pick-rate', data)
         .then(res => {
-            history.push('/order?page=1')
+            // history.push('/order?page=1')
+            history.push('/ship-confirmation')
         })
         .catch(err => {
             window.alert(err.response.data.message)
@@ -108,6 +110,7 @@ const ShipMethod = () => {
                     </TableBody>
                 </Table>
             </TableContainer>
+
             <div className={classes.Form}>
                 <p>With FedEx or USPS Priority Mail parcel insurance for the first $100.00 is included at no extra cost. Additional insurance is available at additional cost (shown on the next page). To add additional insurance input the total declared value of this shipment. Leave blank for default insurance (if any)</p>
                 <input type="number" style={{ height: '2rem', marginTop: '1rem' }} value={insuranceValue} onChange={e => setInsuranceValue(e.target.value)}/>

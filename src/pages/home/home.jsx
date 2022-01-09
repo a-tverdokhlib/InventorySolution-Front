@@ -201,9 +201,11 @@ const Home = (props) => {
                                     <TableCell align="center">{o.shipped}</TableCell>
                                     <TableCell align="center">{
                                         (() => {
-                                            if (o.status === 1)
+                                            if(o.status === 0)
+                                                return 'Unknown'
+                                            else if (o.status === 1)
                                                 return 'Pending'
-                                            if (o.status === 1)
+                                            else if (o.status === 2)
                                                 return 'Shipped'
                                             else
                                                 return 'Cancelled'

@@ -6,7 +6,7 @@ import GetOrders from './GetOrders/GetOrders';
 import CreateOrder from './CreateOrder/CreateOrder';
 import ImportOrder from './ImportOrder/ImportOrder';
 import UploadHistory from './UploadHistory/UploadHistory'
-
+import ShipConfirmation from './ShipMethod/ShipConfirmation';
 
 const Order = () => {
     const route = useRouteMatch();

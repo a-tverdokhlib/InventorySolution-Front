@@ -73,6 +73,7 @@ const AddOrder = () => {
     }, [lines])
 
     const addOrder = (e, invId) => {
+        
         const data = {
             quantity_cases: 0,
             quantity_units: 0,
@@ -238,7 +239,7 @@ const AddOrder = () => {
                                     <TableCell align="center">{i.qoh_case}</TableCell>
                                     <TableCell align="center" style={{
                                         backgroundColor: ((i.qoh_case * i.case_quantity) + i.qoh_units) < i.reorder_quantity ? 'red' : 'white'
-                                    }}>{i.qoh_units})</TableCell>
+                                    }}>{i.qoh_units}</TableCell>
                                     <TableCell align="center">{i.case_weight}</TableCell>
                                     <TableCell align="center">{i.reorder_quantity}</TableCell>
                                     <TableCell align="center">{i.length}</TableCell>
